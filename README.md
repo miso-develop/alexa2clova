@@ -17,13 +17,13 @@ cd alexa2clova
 「index.js」と同じディレクトリに「alexa.json」を作成。  
 「alexa developer console」の「JSON Editor」のJSONをコピペ。  
 
-## tsvファイルのエクスポート
+## TSVファイルのエクスポート
 
 ```
 node index.js
 ```
 
-`intents`ディレクトリと`slots`ディレクトリが作成され、その中にtsvがエクスポートされます。  
+`intents`ディレクトリと`slots`ディレクトリが作成され、その中にTSVが出力されます。  
 あとはClova Developer Centerの対話モデル画面からアップロード！  
 
 # Contribution

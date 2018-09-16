@@ -33,7 +33,7 @@ const makeIntents = intents => {
         let data = "[INTENT SLOT]\r\n"
         
         intent.slots.some(slot => {
-            data += `${slot.name}\t${slot.type}\r\n`
+            data += `${slot.name}\t${slot.type.replace("AMAZON.", "CLOVA.")}\r\n`
             slotTable.push({
                 name: `{${slot.name}}`,
                 tag: `<${slot.name}>${slot.name}</${slot.name}>`,
@@ -66,7 +66,7 @@ const makeSlots = slots => {
             line.push(value.id)
             line.push(value.name.value)
             if (value.name.synonyms)
-                value.name.synonyms.some(synonym => line.push(synonym))
+                value.name.synonyms.some(synonym => {line.push(synonym)})
             data += line.join("\t") + "\r\n"
         })
         
