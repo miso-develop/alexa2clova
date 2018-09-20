@@ -9,13 +9,17 @@ AlexaのJSONをもとにClovaのインテント、スロット用のインポー
 ## Install
 
 ```
-git clone https://github.com/miso-develop/alexa2clova
-cd alexa2clova
+git clone https://github.com/miso-develop/alexa2clova .
 ```
 
 ## alexa.jsonの作成
 「index.js」と同じディレクトリに「alexa.json」を作成。  
 「alexa developer console」の「JSON Editor」のJSONをコピペ。  
+
+```
+touch alexa.json
+## ↑にJSON Editorの中身をコピペ！
+```
 
 ## TSVファイルのエクスポート
 
