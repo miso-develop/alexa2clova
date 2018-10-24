@@ -24,9 +24,7 @@ const makeIntents = intents => {
     
     intents.some(intent => {
         const intentName = intent.name
-        if (intentName === "AMAZON.CancelIntent") return
-        if (intentName === "AMAZON.HelpIntent") return
-        if (intentName === "AMAZON.StopIntent") return
+        if (intentName.startsWith("AMAZON.")) return
         
         const slotTable = []
         
@@ -83,5 +81,5 @@ try {
     makeSlots(slots)
     console.log("Complete!")
 } catch(e) {
-    console.log(`Error!\n${e}`)
+    console.log(`Error!`, e)
 }
