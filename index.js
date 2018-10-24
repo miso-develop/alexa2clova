@@ -63,7 +63,6 @@ const makeSlots = slots => {
         let data = ""
         slot.values.some(value => {
             const line = []
-            line.push(value.id)
             line.push(value.name.value)
             if (value.name.synonyms)
                 value.name.synonyms.some(synonym => {line.push(synonym)})
