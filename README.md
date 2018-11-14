@@ -1,8 +1,8 @@
 # Alexa2Clova
-AlexaのJSONをもとにClovaのインテント、スロット用のインポートTSVを出力します。  
+AlexaのスキルモデルJSONをもとにClovaのスキルモデルTSVを出力します。  
+`-r`オプションをつければClovaのスキルモデルTSVからAlexaのスキルモデルJSONを出力します。  
 
-※2018/9/14時点の仕様に対応。  
-※逆もまた然れるはずなのでいつか対応します。  
+※2018/10/30時点の仕様に対応。  
 
 # Usage
 
@@ -12,7 +12,9 @@ AlexaのJSONをもとにClovaのインテント、スロット用のインポー
 git clone https://github.com/miso-develop/alexa2clova .
 ```
 
-## alexa.jsonの作成
+## AlexaスキルモデルJSONからClovaスキルモデルTSVを出力
+
+### alexa.jsonの作成
 「index.js」と同じディレクトリに「alexa.json」を作成。  
 「alexa developer console」の「JSON Editor」のJSONをコピペ。  
 
@@ -21,14 +23,36 @@ touch alexa.json
 ## ↑にJSON Editorの中身をコピペ！
 ```
 
-## TSVファイルのエクスポート
+### TSVのエクスポート
 
 ```
-node index.js
+node index.js alexa.json
 ```
 
-`intents`ディレクトリと`slots`ディレクトリが作成され、その中にTSVが出力されます。  
-あとはClova Developer Centerの対話モデル画面からアップロード！  
+`alexa2clova`ディレクトリとその配下に`intents`ディレクトリと`slots`ディレクトリが作成され、TSVが出力されます。  
+あとは「Clova Developer Center」の対話モデル画面からアップロード！  
+
+
+
+## ClovaスキルモデルTSVからAlexaスキルモデルJSONを出力
+
+### Clovaスキルモデルのダウンロード
+「Clova Developer Center」の対話モデル画面よりインテント、スロットタイプをそれぞれダウンロード。  
+「index.js」と同じディレクトリに「clova」ディレクトリを作成し、ダウンロードしたTSVを格納。  
+
+```
+mkdir clova
+## ↑にダウンロードしたTSVを格納！
+```
+
+### JSONのエクスポート
+
+```
+node index.js -r clova
+```
+
+「clova2alexa.json」が出力されます。  
+あとは「alexa developer console」の「JSON Editor」にD&D！  
 
 # Contribution
 1. Fork it
